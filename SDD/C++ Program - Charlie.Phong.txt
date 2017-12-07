@@ -1,0 +1,131 @@
+// Program by Charlie Phong
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+using namespace std;
+//Replace std, so no need for std::XX
+
+class Person //This class contains data abstraction, having the basic concepts and fetures.
+{
+  private: // This section is my revealing of encapsulation. Accessable only to member function.
+    int age;
+    int phonenumber;
+    bool hsc;
+  public:// This section is accessable anywhere in the code.
+    int getAge()
+    {
+      return age;
+    }
+    void setAge(int a)// Getters and Setters.
+    {
+      age = a;
+    }
+    int getPhonenumber()
+    {
+      return phonenumber;
+    }
+    void setPhonenumber(int p)
+    {
+      phonenumber = p;
+    }
+    bool getHsc()
+    {
+      return hsc;
+    }
+    void setHsc(bool h)
+    {
+      hsc = h;
+    }
+};// Terminate class with semicolon
+
+void studentID(); //This is my student ID in the form of string
+bool u; //Making u a bool data type.
+int y; //Making y a integer data type.
+
+class Student: public Person // This is inheritance of person.
+{
+  Person person;
+  public:
+    int year_group() //polymorphism of the attributes from the first class overriding it.
+    {
+      y = person.getAge();
+      return y;
+    }
+    bool attempt()
+    {
+      u = person.getHsc();
+      return u;
+    }
+};// Terminate class with semicolon
+
+
+
+void studentID() //Beginning of my method.
+{
+  Person person; //Instantiating my objects.
+  Student student;
+  string name;
+  string surname;
+  string gender;
+  
+  int ID;//My input attributes.
+  int a;
+  bool h;
+  int p;
+  cout << "------------------------------- GRC Oatley Student Registration -----------------------------";
+  cout << "\n\nEnter Your First Name: "; //Output with input.
+  cin >> name;
+  cout << "Enter Your Surname: ";
+  cin >> surname;
+  cout << "Are You Male or Female: ";
+  cin >> gender;
+  cout << "\n--------------------------------- Student Subject Selecetion -------------------------------\n";
+  
+  cout << "\nWhat Is Your Age?";
+  cin >> a;
+  person.setAge(a);//Changing the variables by setting.
+  cout << "Are you attempting the Hsc?(0 for No/1 for Yes)";
+  cin >> h;
+  person.setHsc(h);
+  cout << "Please enter your phone number:";
+  cin >> p;
+  person.setPhonenumber(p);
+  cout << "\nAre You Starting College this year? \n[1]Yes\n[2]No\nSelect: ";
+  cin >> ID;
+  
+  switch(ID)//Demonstrating Selection.
+  {
+    case 1:
+      cout << "\n\nWell chosen, you have just guaranteed a bright future!\n";
+      cout << "\n This is what your ID will look like.";
+      cout << "\n--------------------------------- Student Identification -------------------------------";// Showing the final Student ID with the inputed data.
+      cout << "\nStudent Name: " << name + " " + surname;
+      cout << "\nGender: " << gender;
+      cout << "\nYear Group: " << person.getAge() - 5;// Minues 5 from Person.getAge().
+      cout << "\nStudent ID number: " << ID + 1;//Adding one makes the ID individually different.
+      cout << "\n\n\n------------------------------ Contact Info ----------------------------------------";
+      cout << "\nContact Number: " << person.getPhonenumber();
+      break;
+      
+    case 2:
+      cout << "\nDon't feel downhearted you have another chance in a years time.\n";
+      cout << "\nYou Can Visit The school Website for more information.";
+      cout << "\nhttp://www.oatleysnr-h.schools.nsw.edu.au/";
+      break;
+  }
+};// Terminate class with semicolon
+
+int main()
+{
+  string ID; //Making ID a string.
+  studentID(); //Displays the Registration steps for oatley.
+  cout << "\n-----------------------------------------------------------------------------------------";
+  cout << "\n\n\n\nCongratulations! On Your Registration, student!";
+  cin >> ID;
+  return 0;
+};
+// Terminate class with semicolon
+
+
+//link to program:
+//https://repl.it/@dabdabdab/GenerousSecretQueenslandheeler 

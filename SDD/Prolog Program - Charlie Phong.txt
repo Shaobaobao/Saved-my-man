@@ -1,0 +1,24 @@
+student(charlie, chemistry).%Identifying facts.
+student(steve, mathematics).
+student(john, english).
+student(tom, chemistry).
+student(eva, visual_arts).
+student(tamara, english).
+
+teaches(chloe, chemistry).
+teaches(yorick, english).
+teaches(hanne, mathematics).
+teaches(leo ,visual_arts).
+
+teacher(X,Y):- %This is the rule of the teacher.
+    teaches(X,C), student(Y,C).%Variables: X,Y and C.
+
+%Goals - 
+%student(charlie, Y).
+%student(X, chemistry).
+%student(X, english).
+%teaches(chloe, Y).
+%teaches(X, chemistry).
+
+Link:
+https://swish.swi-prolog.org/p/Teacher%20and%20Student.pl 
